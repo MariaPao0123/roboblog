@@ -358,6 +358,14 @@ figcaption {
   .cabecera .contenedor {
     justify-content: center;
   }
+  .menu {
+    justify-content: center;
+    gap: 2px;
+  }
+  .menu a {                  /* menú más compacto en pantallas pequeñas */
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
   .hero {
     padding: 70px 20px;
   }
