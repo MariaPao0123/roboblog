@@ -1,0 +1,367 @@
+/* =========================================================
+   ROBOBLOG - Hoja de estilos
+   Un único archivo CSS compartido por todas las páginas.
+   ========================================================= */
+
+/* ---------- 1. Variables (colores y medidas reutilizables) ----------
+   Si quieres cambiar el aspecto del blog, empieza por aquí:
+   cambiando un valor se actualiza en todo el sitio. */
+:root {
+  --color-fondo: #f4f6fb;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1f2937;
+  --color-suave: #6b7280;
+  --color-primario: #0f766e;      /* verde azulado */
+  --color-primario-osc: #134e4a;
+  --color-acento: #f59e0b;        /* ámbar */
+  --color-borde: #e5e7eb;
+  --radio: 14px;
+  --sombra: 0 4px 18px rgba(15, 23, 42, 0.08);
+  --ancho-max: 1100px;
+}
+
+/* ---------- 2. Estilos base ---------- */
+* {
+  box-sizing: border-box;   /* el padding no suma al ancho */
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  line-height: 1.25;
+  color: var(--color-primario-osc);
+}
+
+img {
+  max-width: 100%;   /* las imágenes nunca se salen de su contenedor */
+  height: auto;
+}
+
+a {
+  color: var(--color-primario);
+}
+
+/* Contenedor centrado que limita el ancho del contenido */
+.contenedor {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- 3. Cabecera y menú de navegación ---------- */
+.cabecera {
+  position: sticky;          /* el menú se queda fijo arriba al hacer scroll */
+  top: 0;
+  z-index: 10;
+  background: var(--color-primario-osc);
+}
+
+.cabecera .contenedor {
+  display: flex;             /* logo a la izquierda, menú a la derecha */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.marca img {
+  width: 42px;
+  height: 42px;
+}
+
+.menu {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #d1fae5;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.menu a:hover,
+.menu a.activo {             /* .activo marca la página en la que estás */
+  background: var(--color-primario);
+  color: #fff;
+}
+
+/* ---------- 4. Portada (hero) de la página de inicio ---------- */
+.hero {
+  /* Degradado oscuro encima de la imagen para que el texto se lea bien */
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
+    url("../img/portada.jpg") center / cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 110px 20px;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.2rem);   /* tamaño que se adapta a la pantalla */
+  margin: 0 0 12px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  color: #e2e8f0;
+}
+
+/* ---------- 5. Listado de entradas (tarjetas) ---------- */
+.seccion-titulo {
+  margin: 50px 0 20px;
+}
+
+.rejilla {
+  display: grid;
+  /* tantas columnas como quepan, cada una de mínimo 260px */
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 26px;
+  margin-bottom: 60px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-tarjeta);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);    /* la tarjeta "sube" al pasar el ratón */
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.15);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;              /* recorta la imagen sin deformarla */
+}
+
+.tarjeta img.logo {               /* para logotipos: se muestran completos */
+  object-fit: contain;
+  padding: 40px 30px;
+  background: #f8fafc;
+}
+
+.tarjeta-cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 20px 22px;
+}
+
+.tarjeta h3 {
+  margin: 6px 0 8px;
+  font-size: 1.2rem;
+}
+
+.tarjeta p {
+  margin: 0 0 16px;
+  color: var(--color-suave);
+  font-size: 0.95rem;
+}
+
+.etiqueta {
+  align-self: flex-start;
+  background: #ccfbf1;
+  color: var(--color-primario-osc);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.fecha {
+  color: var(--color-suave);
+  font-size: 0.85rem;
+}
+
+.boton {
+  margin-top: auto;               /* empuja el botón al final de la tarjeta */
+  align-self: flex-start;
+  background: var(--color-primario);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.boton:hover {
+  background: var(--color-primario-osc);
+}
+
+/* ---------- 6. Página de una entrada ---------- */
+.articulo {
+  max-width: 780px;
+  margin: 40px auto 60px;
+  background: var(--color-tarjeta);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 40px clamp(20px, 5vw, 56px);
+}
+
+.migas {                          /* "migas de pan": Inicio › Entrada */
+  font-size: 0.9rem;
+  color: var(--color-suave);
+}
+
+.articulo h1 {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin: 10px 0 6px;
+}
+
+.articulo h2 {
+  margin-top: 36px;
+  border-left: 5px solid var(--color-acento);
+  padding-left: 12px;
+}
+
+.imagen-principal {
+  display: block;
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: var(--radio);
+  margin: 24px 0;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: var(--color-suave);
+  margin-top: 6px;
+}
+
+/* Galería de imágenes pequeñas dentro de una entrada */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.galeria img {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  background: #f8fafc;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* Cuadro destacado */
+.destacado {
+  background: #fffbeb;
+  border-left: 5px solid var(--color-acento);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 24px 0;
+}
+
+/* Tabla */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+
+.tabla th,
+.tabla td {
+  border-bottom: 1px solid var(--color-borde);
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabla th {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+/* Navegación entre entradas: anterior / siguiente */
+.nav-entradas {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.nav-entradas a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------- 7. Pie de página ---------- */
+.pie {
+  background: var(--color-primario-osc);
+  color: #a7f3d0;
+  text-align: center;
+  padding: 26px 20px;
+  font-size: 0.9rem;
+}
+
+.pie a {
+  color: #fff;
+}
+
+/* ---------- 8. Adaptación a móviles (diseño responsive) ---------- */
+@media (max-width: 640px) {
+  .cabecera .contenedor {
+    justify-content: center;
+  }
+  .hero {
+    padding: 70px 20px;
+  }
+  .articulo {
+    margin: 20px 12px 40px;
+  }
+}

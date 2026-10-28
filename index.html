@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: hace que la página se vea bien en móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoboBlog | Inicio</title>
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Hoja de estilos propia -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ===== CABECERA + MENÚ (se repite igual en todas las páginas) ===== -->
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="marca" href="index.html">
+        <img src="img/logo.png" alt="Logo de RoboBlog">
+        RoboBlog
+      </a>
+      <nav>
+        <ul class="menu">
+          <li><a class="activo" href="index.html">Inicio</a></li>
+          <li><a href="entradas/que-es-la-ia.html">IA</a></li>
+          <li><a href="entradas/generaciones-robots.html">Robots</a></li>
+          <li><a href="entradas/humanoides-famosos.html">Humanoides</a></li>
+          <li><a href="entradas/empresas-robotica.html">Industria</a></li>
+          <li><a href="acerca.html">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== PORTADA ===== -->
+  <section class="hero">
+    <h1>Robótica e Inteligencia Artificial</h1>
+    <p>Un blog para explicar de forma sencilla cómo piensan, se mueven y trabajan las máquinas que están cambiando el mundo.</p>
+  </section>
+
+  <!-- ===== LISTADO DE ENTRADAS ===== -->
+  <main class="contenedor">
+    <h2 class="seccion-titulo">Últimas entradas</h2>
+
+    <div class="rejilla">
+
+      <!-- Entrada 1 -->
+      <article class="tarjeta">
+        <img src="img/ia.jpg" alt="Collage sobre inteligencia artificial">
+        <div class="tarjeta-cuerpo">
+          <span class="etiqueta">Inteligencia Artificial</span>
+          <h3>¿Qué es realmente la Inteligencia Artificial?</h3>
+          <span class="fecha">2 de octubre de 2026</span>
+          <p>Desmontamos mitos y explicamos la diferencia entre IA, machine learning y deep learning con ejemplos del día a día.</p>
+          <a class="boton" href="entradas/que-es-la-ia.html">Leer más</a>
+        </div>
+      </article>
+
+      <!-- Entrada 2 -->
+      <article class="tarjeta">
+        <img src="img/robot-movil.jpg" alt="Robot móvil">
+        <div class="tarjeta-cuerpo">
+          <span class="etiqueta">Robótica</span>
+          <h3>Las cuatro generaciones de robots</h3>
+          <span class="fecha">8 de octubre de 2026</span>
+          <p>De los brazos manipuladores a los robots inteligentes: así han evolucionado y así se clasifican según su forma.</p>
+          <a class="boton" href="entradas/generaciones-robots.html">Leer más</a>
+        </div>
+      </article>
+
+      <!-- Entrada 3 -->
+      <article class="tarjeta">
+        <img src="img/androides.jpg" alt="Robot humanoide interactuando con una pantalla">
+        <div class="tarjeta-cuerpo">
+          <span class="etiqueta">Humanoides</span>
+          <h3>Cuatro robots humanoides que debes conocer</h3>
+          <span class="fecha">12 de octubre de 2026</span>
+          <p>Pepper, Sophia, iCub y Nao: quién los creó, para qué sirven y por qué son tan famosos.</p>
+          <a class="boton" href="entradas/humanoides-famosos.html">Leer más</a>
+        </div>
+      </article>
+
+      <!-- Entrada 4 -->
+      <article class="tarjeta">
+        <img class="logo" src="img/abb.png" alt="Logotipo de ABB">
+        <div class="tarjeta-cuerpo">
+          <span class="etiqueta">Industria</span>
+          <h3>Los gigantes de la robótica industrial</h3>
+          <span class="fecha">15 de octubre de 2026</span>
+          <p>Un repaso a las empresas que fabrican los robots de las fábricas, almacenes y hogares de todo el mundo.</p>
+          <a class="boton" href="entradas/empresas-robotica.html">Leer más</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="pie">
+    <p>&copy; 2026 RoboBlog · Creado para la asignatura Aplicaciones en Red (UNIR)</p>
+  </footer>
+
+</body>
+</html>
